@@ -1,6 +1,6 @@
 # swift-password-validation
 
-[![CI](https://github.com/coenttb/swift-password-validation/workflows/CI/badge.svg)](https://github.com/coenttb/swift-password-validation/actions/workflows/ci.yml)
+[![CI](https://github.com/swift-foundations/swift-password/workflows/CI/badge.svg)](https://github.com/swift-foundations/swift-password/actions/workflows/ci.yml)
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
 Password validation library for Swift with composable rules and localized error messages.
@@ -25,7 +25,7 @@ Add the following to your `Package.swift` file:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/coenttb/swift-password-validation.git", from: "0.0.1")
+    .package(url: "https://github.com/swift-foundations/swift-password.git", from: "0.0.1")
 ]
 ```
 
@@ -148,7 +148,7 @@ do {
 
 ### Dependencies
 
-- [swift-translating](https://github.com/coenttb/swift-translating): A Swift package for inline translations.
+- [swift-translating](https://github.com/swift-foundations/swift-translating): A Swift package for inline translations.
 
 ### Used By
 
