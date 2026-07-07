@@ -58,14 +58,14 @@ extension PasswordValidation {
   /// ```
   public static var `default`: Self {
     .init { password in
-      let minLength = 8
-      let maxLength = 64
+      let minLength: Int = 8
+      let maxLength: Int = 64
 
       // Regular expression patterns
-      let uppercasePattern = ".*[A-Z]+.*"
-      let lowercasePattern = ".*[a-z]+.*"
-      let digitPattern = ".*[0-9]+.*"
-      let specialCharacterPattern = ".*[!&^%$#@()/]+.*"
+      let uppercasePattern: String = ".*[A-Z]+.*"
+      let lowercasePattern: String = ".*[a-z]+.*"
+      let digitPattern: String = ".*[0-9]+.*"
+      let specialCharacterPattern: String = ".*[!&^%$#@()/]+.*"
 
       // Check password length
       if password.count < minLength {
