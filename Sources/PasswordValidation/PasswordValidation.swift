@@ -133,41 +133,43 @@ extension PasswordValidation {
     case missingDigit
     /// The password does not contain any special characters.
     case missingSpecialCharacter
+  }
+}
 
-    /// A localized description of the validation error.
-    public var description: String {
-      switch self {
-      case .tooShort(let minLength):
-        return TranslatedString(
-          dutch: "Wachtwoord moet minstens \(minLength) tekens lang zijn.",
-          english: "Password must be at least \(minLength) characters long."
-        ).description
-      case .tooLong(let maxLength):
-        return TranslatedString(
-          dutch: "Wachtwoord mag maximaal \(maxLength) tekens lang zijn.",
-          english: "Password must be no more than \(maxLength) characters long."
-        ).description
-      case .missingUppercase:
-        return TranslatedString(
-          dutch: "Wachtwoord moet minstens één hoofdletter bevatten.",
-          english: "Password must contain at least one uppercase letter."
-        ).description
-      case .missingLowercase:
-        return TranslatedString(
-          dutch: "Wachtwoord moet minstens één kleine letter bevatten.",
-          english: "Password must contain at least one lowercase letter."
-        ).description
-      case .missingDigit:
-        return TranslatedString(
-          dutch: "Wachtwoord moet minstens één cijfer bevatten.",
-          english: "Password must contain at least one digit."
-        ).description
-      case .missingSpecialCharacter:
-        return TranslatedString(
-          dutch: "Wachtwoord moet minstens één speciaal teken bevatten (bijv. !&^%$#@()/).",
-          english: "Password must contain at least one special character (e.g., !&^%$#@()/)."
-        ).description
-      }
+extension PasswordValidation.Error {
+  /// A localized description of the validation error.
+  public var description: String {
+    switch self {
+    case .tooShort(let minLength):
+      return TranslatedString(
+        dutch: "Wachtwoord moet minstens \(minLength) tekens lang zijn.",
+        english: "Password must be at least \(minLength) characters long."
+      ).description
+    case .tooLong(let maxLength):
+      return TranslatedString(
+        dutch: "Wachtwoord mag maximaal \(maxLength) tekens lang zijn.",
+        english: "Password must be no more than \(maxLength) characters long."
+      ).description
+    case .missingUppercase:
+      return TranslatedString(
+        dutch: "Wachtwoord moet minstens één hoofdletter bevatten.",
+        english: "Password must contain at least one uppercase letter."
+      ).description
+    case .missingLowercase:
+      return TranslatedString(
+        dutch: "Wachtwoord moet minstens één kleine letter bevatten.",
+        english: "Password must contain at least one lowercase letter."
+      ).description
+    case .missingDigit:
+      return TranslatedString(
+        dutch: "Wachtwoord moet minstens één cijfer bevatten.",
+        english: "Password must contain at least one digit."
+      ).description
+    case .missingSpecialCharacter:
+      return TranslatedString(
+        dutch: "Wachtwoord moet minstens één speciaal teken bevatten (bijv. !&^%$#@()/).",
+        english: "Password must contain at least one special character (e.g., !&^%$#@()/)."
+      ).description
     }
   }
 }
