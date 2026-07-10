@@ -13,7 +13,7 @@ extension Target.Dependency {
 extension Target.Dependency {
     static var translating: Self { .product(name: "Translating", package: "swift-translating") }
     static var dependencies: Self { .product(name: "Dependencies", package: "swift-dependencies") }
-    static var dependenciesTestSupport: Self { .product(name: "DependenciesTestSupport", package: "swift-dependencies") }
+    static var dependenciesTestSupport: Self { .product(name: "Dependencies Test Support", package: "swift-dependencies") }
 }
 
 let package = Package(
@@ -30,7 +30,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/coenttb/swift-translating", from: "0.0.1"),
-        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.10.0")
+        .package(url: "https://github.com/swift-foundations/swift-dependencies.git", branch: "main")
     ],
     targets: [
         .target(
