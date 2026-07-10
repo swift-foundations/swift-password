@@ -1,9 +1,9 @@
 import Dependencies
 import Translating
 
-enum PasswordValidationKey {}
+private enum PasswordValidationKey {}
 
-extension DependencyValues {
+extension __DependencyValues {
   /// Access to password validation functionality through the Dependencies system.
   ///
   /// This provides a convenient way to inject password validation into your application
@@ -23,9 +23,9 @@ extension DependencyValues {
   }
 }
 
-extension PasswordValidationKey: DependencyKey {
+extension PasswordValidationKey: Dependency.Key {
   /// The test value uses simple validation for easier testing.
-  public static var testValue: PasswordValidation { .simple }
+  static var testValue: PasswordValidation { .simple }
   /// The live value uses comprehensive validation for production.
-  public static var liveValue: PasswordValidation { .default }
+  static var liveValue: PasswordValidation { .default }
 }

@@ -6,12 +6,13 @@
 //
 
 import Dependencies
+import Dependencies_Test_Support
 import Testing
 
 @testable import PasswordValidation
 
 @Suite(
-  .dependency(\.locale, .english)
+  .dependency(\.language, .english)
 )
 struct `README Verification` {
 

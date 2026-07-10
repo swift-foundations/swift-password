@@ -6,13 +6,13 @@
 //
 
 import Dependencies
-import DependenciesTestSupport
+import Dependencies_Test_Support
 import Testing
 
 @testable import PasswordValidation
 
 @Suite(
-  .dependency(\.locale, .english),
+  .dependency(\.language, .english),
   .dependency(\.passwordValidation, .default)
 )
 struct `PasswordValidation Tests` {
