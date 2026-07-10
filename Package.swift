@@ -1,4 +1,4 @@
-// swift-tools-version:5.10
+// swift-tools-version: 6.3.1
 
 import PackageDescription
 
@@ -19,17 +19,18 @@ extension Target.Dependency {
 let package = Package(
     name: "swift-password-validation",
     platforms: [
-        .iOS(.v16),
-        .macOS(.v13),
-        .macCatalyst(.v16),
-        .tvOS(.v16),
-        .watchOS(.v9)
+        .iOS(.v26),
+        .macOS(.v26),
+        .macCatalyst(.v26),
+        .tvOS(.v26),
+        .watchOS(.v26),
+        .visionOS(.v26)
     ],
     products: [
         .library(name: .passwordValidation, targets: [.passwordValidation]),
     ],
     dependencies: [
-        .package(url: "https://github.com/coenttb/swift-translating", from: "0.0.1"),
+        .package(url: "https://github.com/swift-foundations/swift-translating.git", branch: "main"),
         .package(url: "https://github.com/swift-foundations/swift-dependencies.git", branch: "main")
     ],
     targets: [
