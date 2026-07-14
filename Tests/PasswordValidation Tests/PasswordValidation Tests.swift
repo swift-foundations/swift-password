@@ -54,6 +54,44 @@ struct `PasswordValidation Tests` {
   }
 
   @Suite
+  struct `Hyphen and space special characters` {
+
+    // Safari's and 1Password's DEFAULT generated password format is hyphenated
+    // lowercase groups with one uppercase and one digit (e.g. "Xokwaq-9kotbe-ruwmoq").
+    // Before the fix the hyphen was not in the special-character set, so these
+    // generated passwords were rejected against the policy's own intent.
+    @Test
+    func `Safari-format hyphenated password passes validation`() async throws {
+      @Dependency(\.passwordValidation.validate) var isValidPassword:
+        @Sendable (String) throws -> Bool
+      // The hyphen is the only special character here; uppercase/lowercase/digit are
+      // all present, so this password passes only because '-' now counts as special.
+      let safariPassword: String = "Xokwaq-9kotbe-ruwmoq"
+      #expect(try isValidPassword(safariPassword) == true)
+    }
+
+    @Test
+    func `Password whose only special character is a space passes validation`() async throws {
+      @Dependency(\.passwordValidation.validate) var isValidPassword:
+        @Sendable (String) throws -> Bool
+      let spacePassword: String = "Pass word12"
+      #expect(try isValidPassword(spacePassword) == true)
+    }
+
+    @Test
+    func `Password with no special character at all still fails`() async throws {
+      @Dependency(\.passwordValidation.validate) var isValidPassword:
+        @Sendable (String) throws -> Bool
+      // Same shape as the Safari password but with every special character removed:
+      // uppercase, lowercase, and digit are present, yet it must still be rejected.
+      let noSpecial: String = "Xokwaq9kotberuwmoq"
+      #expect(throws: PasswordValidation.Error.missingSpecialCharacter) {
+        try isValidPassword(noSpecial)
+      }
+    }
+  }
+
+  @Suite
   struct `Invalid Passwords - Length` {
 
     @Test

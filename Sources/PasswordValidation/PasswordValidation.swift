@@ -66,7 +66,11 @@ extension PasswordValidation {
       let uppercasePattern: String = ".*[A-Z]+.*"
       let lowercasePattern: String = ".*[a-z]+.*"
       let digitPattern: String = ".*[0-9]+.*"
-      let specialCharacterPattern: String = ".*[!&^%$#@()/]+.*"
+      // Hyphen ('-') and space (' ') are accepted specials so that the default
+      // generated-password formats of Safari and 1Password (hyphenated groups, e.g.
+      // "xokwaq-9kotbe-ruwmoq") satisfy the policy's own intent. The hyphen is placed
+      // last inside the character class so it is a literal, not a range operator.
+      let specialCharacterPattern: String = ".*[!&^%$#@()/ -]+.*"
 
       // Check password length
       if password.count < minLength {
